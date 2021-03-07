@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+
+    background-color:#102144;
+    background-image: url("https://i.imgur.com/cNEYEtK.png");
+    background-size: 250vmin 150vmin, cover;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position:top;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: 'Play', sans-serif;
+}
+
+img {
+    margin: 5vh auto;
+    text-align: center;
+    width: 30%;
+    height: 30%;
+}
+
+section {
+    text-align: center;
+    display: block;
+}
+#submit {
+    margin-top: 5vmin;
+    height: 11vh;
+    width: 11vh;
+    border: outset silver 5px;
+    border-radius: 200%;
+    font-size: 17px;
+    
+}
+
+h1 {
+    margin-bottom: 7vh;
+    margin-top: 2vh;
+    color: white;
+    font-size: 100px;
+}
+
+main {
+    margin-bottom: 5vh;
+    font-size: 50px;
+    color: white;
+}
+#submit:hover {
+    background-color: green;
+}
+
+#reset {
+    margin: 10vmin;
+    border: inset silver;
+    padding: .5vmin;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url("https://i.imgur.com/vCX7DkY.png");
+        background-size: 200vmin 175vmin, cover;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: left;
+        background-attachment: fixed; 
+    }
+    img {
+        width: 80%;
+        height: 80%;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    main {
+        font-size: 40px;
+    }
+    #submit {
+        height: 10vh;
+        width: 10vh;
+    }
+}
