@@ -50,8 +50,9 @@ for (let i =0; i < randomWord.length; i ++) {
                 answerArr[j] = inp.value;
                 displayResults.textContent = answerArr.join(' ');
             }
-          
+            
         }
+        inp.value = '';
         
        // if ((inp.value !== randomWord[i]) && (wrong.length <= 7)) {
        //     wrong.push(inp.value);
@@ -60,6 +61,8 @@ for (let i =0; i < randomWord.length; i ++) {
        //     }
            render();
        };
+
+    
 
 function render() {
    if (inp.value.length !== 1) {
@@ -73,7 +76,7 @@ function render() {
     };
 
 
-
+    
 
 
 
