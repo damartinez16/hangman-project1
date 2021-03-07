@@ -45,22 +45,19 @@ for (let i =0; i < randomWord.length; i ++) {
         for (let i =0; i < randomWord.length; i ++) {
             answerArr[i] ='_';
         }
+      
         for (let j = 0; j < randomWord.length; j++) {
-            if (randomWord[j] === inp.value) {
-                answerArr[j] = inp.value;
+            if (randomWord[j] === lowCasing) {
+                answerArr[j] = lowCasing;
                 displayResults.textContent = answerArr.join(' ');
-            }
+            } 
             
         }
         inp.value = '';
-        
-       // if ((inp.value !== randomWord[i]) && (wrong.length <= 7)) {
-       //     wrong.push(inp.value);
-       // } else if (inp.value === randomWord[i]) {
-       //     answerArr.push(inp.value);
-       //     }
            render();
        };
+
+     
 
     
 
@@ -69,6 +66,8 @@ function render() {
        msg.textConent = `Please enter a single letter`;
    } else if(inp.value === wrong) {
        msg.textContent = `You have already guessed that letter`;
+   } else if(inp.value === randomWord[i]) {
+       msg.textContent = `Correct!`;
    } else {
        msg.textContent = `Invalid, Please enter a letter`;
    }
