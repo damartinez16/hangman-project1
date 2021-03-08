@@ -2,6 +2,7 @@
 const words = ['helmet', 'neptune', 'saturn', 'spaceship', 
 'planet', 'alien', 'rocket', 'astronaunt', 'galaxy', 'satellite', 'earth', 'universe', 'constellations'];
 const maxGuesses = 7;
+const sound = 'https://freesound.org/s/42106/';
 
 /*----- app's state (variables) -----*/
 let random = words[Math.floor(Math.random() * words.length)];
@@ -23,6 +24,7 @@ reset.addEventListener('click', init);
 submit.addEventListener('click', submitGuess);
 
 /*----- functions -----*/
+
 init();
 
 
@@ -30,10 +32,10 @@ function init() {
     let wrong = []; 
     let answerArr = [];
     let randomWord = random
-    reset.style.visibility = 'hidden';
+   
     render();
 };
-
+reset.style.visibility = 'hidden';
 
 function render() {
     let answerArr = new Array(randomWord.length).fill('_');
@@ -77,3 +79,4 @@ function getWinner() {
         }
         reset.style.visibility = 'visible';
     }
+

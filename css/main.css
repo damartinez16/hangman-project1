@@ -28,11 +28,11 @@ section {
 }
 #submit {
     margin-top: 5vmin;
-    height: 10vh;
-    width: 10vh;
+    height: 9vh;
+    width: 9vh;
     border: outset silver 5px;
     border-radius: 200%;
-    font-size: 17px;
+    font-size: 19px;
     
 }
 
