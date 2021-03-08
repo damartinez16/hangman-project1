@@ -27,20 +27,25 @@ init();
 
 
 function init() {
+    let wrong = []; 
+    let answerArr = [];
+    let randomWord = random
     reset.style.visibility = 'hidden';
-   let answerArr = [];
-   let wrong = [];  
-}
+};
+
 
 function render() {
-    let lowCasing = inp.value.toLowerCase();
-    if (lowCasing.length > 1) {
+    let answerArr = new Array(randomWord.length).fill('_');
+    let lowCaseInp = inp.value.toLowerCase();
+    if ((inp.value.length) > 1) {
         msg.textConent = `Please enter a single letter`;
-    } else if(wrong.includes(lowCasing)) {
+    } else if(wrong.includes(lowCaseInp)) {
         msg.textContent = `You have already guessed that letter`;
-    } else if(randomWord.includes(lowCasing)) {
+    } else if (lowCaseInp === '') {
+        msg.textConent = `Please enter a letter`
+    } else if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
-    } else if(!randomWord.includes(lowCasing)) {
+    } else if(!randomWord.includes(lowCaseInp)) {
         msg.textContent = 'Wrong!';
     } else {
         msg.textContent = `Invalid, Please enter a letter`;
@@ -48,12 +53,11 @@ function render() {
     let winner = getWinner();
      };
 
-
 function submitGuess() {
-    let lowCasing = inp.value.toLowerCase();
+    let lowCaseInp = inp.value.toLowerCase();
     for (let j = 0; j < randomWord.length; j++) {
-        if (randomWord[j] === lowCasing) {
-            answerArr[j] = lowCasing;
+        if (randomWord[j] === lowCaseInp) {
+            answerArr[j] = lowCaseInp;
             displayResults.textContent = answerArr.join(' ');
         } 
     }
@@ -67,7 +71,7 @@ function getWinner() {
     if ((answerArr.includes('_')) && (wrong.length <= 7)) {
     return;
     } else { 
-    msg.textContent = `You win the answer was ${randomWord}`;
+    msg.textContent = `You win the answer was `;
         }
         reset.style.visibility = 'visible';
     }
