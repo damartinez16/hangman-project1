@@ -26,18 +26,29 @@ init();
 
 
 function init() {
+reset.style.visibility = 'hidden';
 
    let answerArr = [];
    let wrong = []; 
+   answerArr = new Array(randomWord.length).fill('_');
+ 
 }
 
- 
-
- 
-for (let i =0; i < randomWord.length; i ++) {
-    answerArr[i] ='_';
-}
-
+function render() {
+    if ((inp.value.length) !== 1) {
+        msg.textConent = `Please enter a single letter`;
+    } else if(wrong.includes(inp.value)) {
+        msg.textContent = `You have already guessed that letter`;
+    } else if(randomWord.includes(inp.value)) {
+        msg.textContent = `Correct!`;
+    } else if(!randomWord.includes(inp.value)){
+        msg.textContent = 'Wrong!';
+    } else {
+        msg.textContent = `Invalid, Please enter a letter`;
+    }
+    let winner = getWinner();
+    reset.style.visibility = winner ? 'visible' : 'hidden';
+     };
 
 
     function submitGuess() {
@@ -53,26 +64,11 @@ for (let i =0; i < randomWord.length; i ++) {
             } 
             
         }
+        render();
+        
         inp.value = '';
-           render();
+           
        };
-
-     
-
-    
-
-function render() {
-   if (inp.value.length !== 1) {
-       msg.textConent = `Please enter a single letter`;
-   } else if(inp.value === wrong) {
-       msg.textContent = `You have already guessed that letter`;
-   } else if(inp.value === randomWord[i]) {
-       msg.textContent = `Correct!`;
-   } else {
-       msg.textContent = `Invalid, Please enter a letter`;
-   }
-  
-    };
 
 
     
@@ -85,4 +81,5 @@ function getWinner() {
     } else { 
     msg.textContent = `You win the answer was ${randomWord.join('')}`;
         }
+        
     }
