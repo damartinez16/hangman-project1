@@ -8,6 +8,7 @@ let random = words[Math.floor(Math.random() * words.length)];
 let randomWord = random
 let answerArr = [];
 let wrong = [];
+answerArr = new Array(randomWord.length).fill('_');
 
 
 /*----- cached element references -----*/
@@ -26,60 +27,47 @@ init();
 
 
 function init() {
-reset.style.visibility = 'hidden';
-
+    reset.style.visibility = 'hidden';
    let answerArr = [];
-   let wrong = []; 
-   answerArr = new Array(randomWord.length).fill('_');
- 
+   let wrong = [];  
 }
 
 function render() {
-    if ((inp.value.length) !== 1) {
+    let lowCasing = inp.value.toLowerCase();
+    if (lowCasing.length > 1) {
         msg.textConent = `Please enter a single letter`;
-    } else if(wrong.includes(inp.value)) {
+    } else if(wrong.includes(lowCasing)) {
         msg.textContent = `You have already guessed that letter`;
-    } else if(randomWord.includes(inp.value)) {
+    } else if(randomWord.includes(lowCasing)) {
         msg.textContent = `Correct!`;
-    } else if(!randomWord.includes(inp.value)){
+    } else if(!randomWord.includes(lowCasing)) {
         msg.textContent = 'Wrong!';
     } else {
         msg.textContent = `Invalid, Please enter a letter`;
     }
     let winner = getWinner();
-    reset.style.visibility = winner ? 'visible' : 'hidden';
      };
 
 
-    function submitGuess() {
-        let lowCasing = inp.value.toLowerCase();
-        for (let i =0; i < randomWord.length; i ++) {
-            answerArr[i] ='_';
-        }
-      
-        for (let j = 0; j < randomWord.length; j++) {
-            if (randomWord[j] === lowCasing) {
-                answerArr[j] = lowCasing;
-                displayResults.textContent = answerArr.join(' ');
-            } 
-            
-        }
+function submitGuess() {
+    let lowCasing = inp.value.toLowerCase();
+    for (let j = 0; j < randomWord.length; j++) {
+        if (randomWord[j] === lowCasing) {
+            answerArr[j] = lowCasing;
+            displayResults.textContent = answerArr.join(' ');
+        } 
+    }
         render();
-        
-        inp.value = '';
-           
-       };
-
-
+        inp.value = '';  
+    };
     
-
-
+    
 
 function getWinner() {
     if ((answerArr.includes('_')) && (wrong.length <= 7)) {
     return;
     } else { 
-    msg.textContent = `You win the answer was ${randomWord.join('')}`;
+    msg.textContent = `You win the answer was ${randomWord}`;
         }
-        
+        reset.style.visibility = 'visible';
     }
