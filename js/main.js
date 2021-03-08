@@ -31,6 +31,7 @@ function init() {
     let answerArr = [];
     let randomWord = random
     reset.style.visibility = 'hidden';
+    render();
 };
 
 
@@ -46,6 +47,7 @@ function render() {
     } else if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
     } else if(!randomWord.includes(lowCaseInp)) {
+        wrong.push(lowCaseInp);
         msg.textContent = 'Wrong!';
     } else {
         msg.textContent = `Invalid, Please enter a letter`;
@@ -68,10 +70,10 @@ function submitGuess() {
     
 
 function getWinner() {
-    if ((answerArr.includes('_')) && (wrong.length <= 7)) {
-    return;
-    } else { 
-    msg.textContent = `You win the answer was `;
+    if ((!answerArr.includes('_')) && (wrong.length <= 7)) {
+        msg.textContent = `You win the answer was `
+    } else if (answerArr.includes('_') && (wrong.length > 7)) { 
+        msg.textContent = `Oh no you ran out of guesses. The correct answer was ${randomWord}`;
         }
         reset.style.visibility = 'visible';
     }
