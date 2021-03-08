@@ -1,8 +1,6 @@
 /*----- constants -----*/
 const words = ['helmet', 'neptune', 'saturn', 'spaceship', 
-'planet', 'alien', 'rocket', 'astronaunt', 'galaxy', 'satellite', 'earth', 'universe', 'constellations'];
-const maxGuesses = 7;
-const sound = 'https://freesound.org/s/42106/';
+'planet', 'alien', 'rocket', 'astronaut', 'galaxy', 'satellite', 'earth', 'universe', 'constellations'];
 
 /*----- app's state (variables) -----*/
 let random = words[Math.floor(Math.random() * words.length)];
@@ -34,10 +32,12 @@ function init() {
     let randomWord = random
    
     render();
+    
 };
-reset.style.visibility = 'hidden';
+
 
 function render() {
+    
     let answerArr = new Array(randomWord.length).fill('_');
     let lowCaseInp = inp.value.toLowerCase();
     if ((inp.value.length) > 1) {
@@ -54,8 +54,10 @@ function render() {
     } else {
         msg.textContent = `Invalid, Please enter a letter`;
     }
-    let winner = getWinner();
-     };
+    reset.style.visibility = 'hidden';
+     getWinner();
+     
+    };
 
 function submitGuess() {
     let lowCaseInp = inp.value.toLowerCase();
@@ -72,11 +74,13 @@ function submitGuess() {
     
 
 function getWinner() {
-    if ((!answerArr.includes('_')) && (wrong.length <= 7)) {
+   
+    if ((!answerArr.includes('_')) && (wrong.length <= 6)) {
         msg.textContent = `You win the answer was `
-    } else if (answerArr.includes('_') && (wrong.length > 7)) { 
-        msg.textContent = `Oh no you ran out of guesses. The correct answer was ${randomWord}`;
-        }
         reset.style.visibility = 'visible';
-    }
+    } else if (answerArr.includes('_') && (wrong.length > 6)) { 
+        msg.textContent = `Oh no you ran out of guesses. The correct answer was ${randomWord}`;
+        reset.style.visibility = 'visible';
+        } 
+    };
 
