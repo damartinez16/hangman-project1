@@ -22,7 +22,7 @@ const guesses = document.querySelector('nav');
 /*----- event listeners -----*/
 reset.addEventListener('click', init);
 submit.addEventListener('click', submitGuess);
-document.addEventListener('keydown', init);
+
 
 /*----- functions -----*/
 
@@ -42,12 +42,12 @@ function init() {
 function render() {  
     let answerArr = new Array(randomWord.length).fill('_');
     let lowCaseInp = inp.value.toLowerCase();
-    if (inp.value.length > 1) {
+    if (lowCaseInp.length >= 1) {
         msg.textConent = `Please enter a single letter`;
     } else if(wrong.includes(lowCaseInp)) {
         msg.textContent = `You have already guessed that letter`;
     } else if (lowCaseInp === '') {
-        msg.textConent = `Please enter a letter`
+        msg.textConent = `Please enter a letter`;
     } else if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
     } else if(!randomWord.includes(lowCaseInp)) {

@@ -67,9 +67,6 @@ main {
     color: white;
 }
 
-#bg-music {
-    text-align: right;
-}
 @media only screen and (max-width: 600px) {
     body {
         background-image: url("https://i.imgur.com/vCX7DkY.png");
