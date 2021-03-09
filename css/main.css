@@ -15,6 +15,12 @@ body {
     font-family: 'Play', sans-serif;
 }
 
+nav {
+    color: white;
+    text-align: left;
+    margin: 3vmin 0 0 3vmin;
+    font-size: 3vmin;
+}
 img {
     margin: 5vh auto;
     text-align: center;
