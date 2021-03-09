@@ -36,19 +36,14 @@ function init() {
     guesses.textContent = `Guesses remaining: ${maxGuesses}`;
     render(); 
 };
-
+msg.textContent = `Enter a letter to begin`;
 
 
 function render() {  
+    
     let answerArr = new Array(randomWord.length).fill('_');
     let lowCaseInp = inp.value.toLowerCase();
-    if (lowCaseInp.length >= 1) {
-        msg.textConent = `Please enter a single letter`;
-    } else if(wrong.includes(lowCaseInp)) {
-        msg.textContent = `You have already guessed that letter`;
-    } else if (lowCaseInp === '') {
-        msg.textConent = `Please enter a letter`;
-    } else if(randomWord.includes(lowCaseInp)) {
+     if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
     } else if(!randomWord.includes(lowCaseInp)) {
         wrong.push(lowCaseInp);
