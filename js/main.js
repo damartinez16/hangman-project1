@@ -34,7 +34,7 @@ function init() {
     guesses.textContent = `Guesses remaining: ${maxGuesses}`;
     answerArr = new Array(randomWord.length).fill('_');
     reset.style.visibility = 'hidden';
-    displayResults.textContent = '';
+    displayResults.textContent = answerArr.join(' ');
     render();
 };
 
