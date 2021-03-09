@@ -31,8 +31,8 @@ init();
 
 function init() {
     let wrong = []; 
-    let answerArr = [];
     let randomWord = random;
+    let answerArr = new Array(randomWord.length).fill('_');
     guesses.textContent = `Guesses remaining: ${maxGuesses}`;
     render(); 
 };
@@ -60,7 +60,6 @@ function render() {
     }
     reset.style.visibility = 'hidden';
      getWinner();
-     
     };
 
 
@@ -88,9 +87,11 @@ function getWinner() {
         msg.textContent = `Oh no you ran out of guesses. The correct answer was ${randomWord}`;
         reset.style.visibility = 'visible';
         } 
+        
 };
 
-let myAudio =  document.querySelector('audio');
+let myAudio =  document.querySelector('#laser');
 submit.addEventListener('click', ()=> {
     myAudio.play();
 });
+
