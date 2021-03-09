@@ -1,14 +1,12 @@
 /*----- constants -----*/
 const words = ['helmet', 'neptune', 'saturn', 'spaceship', 
 'planet', 'alien', 'rocket', 'astronaut', 'galaxy', 'satellite', 'earth', 'universe', 'constellations'];
-
-/*----- app's state (variables) -----*/
-let random = words[Math.floor(Math.random() * words.length)];
-let randomWord = random
-let answerArr = [];
-let wrong = [];
-answerArr = new Array(randomWord.length).fill('_');
 let maxGuesses = 6;
+/*----- app's state (variables) -----*/
+let randomWord = words[Math.floor(Math.random() * words.length)];
+let wrong = [];
+let answerArr;
+maxGuesses;
 
 
 /*----- cached element references -----*/
@@ -25,28 +23,29 @@ submit.addEventListener('click', submitGuess);
 
 
 /*----- functions -----*/
-
 init();
 
 
 function init() {
-    let wrong = []; 
-    let randomWord = random;
-    let answerArr = new Array(randomWord.length).fill('_');
+    maxGuesses = 6;
+    msg.textContent = `Enter a letter below`;
+    wrong = []; 
+    randomWord = words[Math.floor(Math.random() * words.length)];
     guesses.textContent = `Guesses remaining: ${maxGuesses}`;
-    render(); 
+    answerArr = new Array(randomWord.length).fill('_');
+    reset.style.visibility = 'hidden';
+    displayResults.textContent = '';
+    render();
 };
-msg.textContent = `Enter a letter to begin`;
 
 
 function render() {  
-    let answerArr = new Array(randomWord.length).fill('_');
     let lowCaseInp = inp.value.toLowerCase();
      if(inp.value === ('')) {
-        msg.textContent = `Please enter a letter`;
+        msg.textContent = `Enter a letter below`;
     } else if (wrong.includes(lowCaseInp)) {
         msg.textContent = `You have already guessed that letter`;
-    } else if (lowCaseInp.length !== 1) {
+    } else if (lowCaseInp.length > 1) {
         msg.textContent = `Please enter a single letter`;
     } else if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
@@ -58,13 +57,12 @@ function render() {
     } else {
         msg.textContent = `Invalid, Please enter a letter`;
     }
-    reset.style.visibility = 'hidden';
      getWinner();
     };
 
+render();
 
-
-function submitGuess() {
+function submitGuess() { 
     let lowCaseInp = inp.value.toLowerCase();
     for (let j = 0; j < randomWord.length; j++) {
         if (randomWord[j] === lowCaseInp) {
@@ -76,22 +74,19 @@ function submitGuess() {
         inp.value = '';  
 };
     
-    
 
 function getWinner() {
-   
     if ((!answerArr.includes('_')) && (wrong.length <= 5)) {
-        msg.textContent = `You win the answer was `
+        msg.textContent = `You win! The answer was `
         reset.style.visibility = 'visible';
     } else if (answerArr.includes('_') && (wrong.length > 5)) { 
         msg.textContent = `Oh no you ran out of guesses. The correct answer was ${randomWord}`;
         reset.style.visibility = 'visible';
-        } 
-        
+        }   
 };
 
-let myAudio =  document.querySelector('#laser');
-submit.addEventListener('click', ()=> {
-    myAudio.play();
-});
+    let myAudio =  document.querySelector('#laser');
+        submit.addEventListener('click', ()=> {
+            myAudio.play();
+    });
 
