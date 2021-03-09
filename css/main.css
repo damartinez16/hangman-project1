@@ -81,13 +81,14 @@ main {
         height: 80%;
     }
     h1 {
-        font-size: 60px;
+        font-size: 30px;
     }
     main {
-        font-size: 40px;
+        font-size: 30px;
     }
     #submit {
         height: 10vh;
         width: 10vh;
+        font-size: 15px;
     }
 }
