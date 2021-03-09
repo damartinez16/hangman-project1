@@ -29,18 +29,16 @@ init();
 function init() {
     let wrong = []; 
     let answerArr = [];
-    let randomWord = random
-   
-    render();
-    
+    let randomWord = random;
+    render(); 
 };
 
 
-function render() {
-    
+
+function render() {  
     let answerArr = new Array(randomWord.length).fill('_');
     let lowCaseInp = inp.value.toLowerCase();
-    if ((inp.value.length) > 1) {
+    if (inp.value.length > 1) {
         msg.textConent = `Please enter a single letter`;
     } else if(wrong.includes(lowCaseInp)) {
         msg.textContent = `You have already guessed that letter`;
@@ -59,6 +57,8 @@ function render() {
      
     };
 
+
+
 function submitGuess() {
     let lowCaseInp = inp.value.toLowerCase();
     for (let j = 0; j < randomWord.length; j++) {
@@ -69,7 +69,7 @@ function submitGuess() {
     }
         render();
         inp.value = '';  
-    };
+};
     
     
 
@@ -82,5 +82,9 @@ function getWinner() {
         msg.textContent = `Oh no you ran out of guesses. The correct answer was ${randomWord}`;
         reset.style.visibility = 'visible';
         } 
-    };
+};
 
+let myAudio =  document.querySelector('audio');
+submit.addEventListener('click', ()=> {
+    myAudio.play();
+});
