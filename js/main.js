@@ -40,10 +40,17 @@ msg.textContent = `Enter a letter to begin`;
 
 
 function render() {  
-    
     let answerArr = new Array(randomWord.length).fill('_');
     let lowCaseInp = inp.value.toLowerCase();
-     if(randomWord.includes(lowCaseInp)) {
+     if(inp.value === ('')) {
+        msg.textContent = `Please enter a letter`;
+    } else if (wrong.includes(lowCaseInp)) {
+        msg.textContent = `You have already guessed that letter`;
+    } else if (lowCaseInp.length !== 1) {
+        msg.textContent = `Please enter a single letter`;
+    } else if(inp.value === 'number') {
+        msg.textContent = `Invalid, Please enter a letter`;
+    } else if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
     } else if(!randomWord.includes(lowCaseInp)) {
         wrong.push(lowCaseInp);
