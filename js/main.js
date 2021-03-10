@@ -4,7 +4,8 @@ const words = ['helmet', 'neptune', 'saturn', 'spaceship',
  'earth', 'universe', 'constellations', 'nebula', 'venus', 'jupiter',
   'asteroid', 'kepler', 'meteor', 'supernova', 'mercury', 'mars', 'uranus', 
   'aquarius', 'aries', 'cancer', 'capricorn', 'cassiopeia', 'gemini', 'leo', 
-  'libra', 'orion', 'pisces', 'sagittarius', 'scorpio', 'taurus', 'astronomy', 'aerospace'];
+  'libra', 'orion', 'pisces', 'sagittarius', 'scorpio', 'taurus', 'astronomy',
+   'aerospace', 'rover', 'pathfinder'];
 let maxGuesses = 6;
 /*----- app's state (variables) -----*/
 let randomWord = words[Math.floor(Math.random() * words.length)];
