@@ -1,19 +1,19 @@
 /*----- constants -----*/
 const words = ['helmet', 'neptune', 'saturn', 'spaceship', 
 'planet', 'alien', 'rocket', 'astronaut', 'galaxy', 'satellite',
- 'earth', 'universe', 'constellations', 'nebula', 'venus', 'jupiter',
-  'asteroid', 'kepler', 'meteor', 'supernova', 'mercury', 'mars', 'uranus', 
-  'aquarius', 'aries', 'cancer', 'capricorn', 'cassiopeia', 'gemini', 'leo', 
-  'libra', 'orion', 'pisces', 'sagittarius', 'scorpio', 'taurus', 'astronomy',
-   'aerospace', 'rover', 'pathfinder', 'stars', 'pluto', 'comet', 'lunar', 'eclipse',
-    'solstice', 'orbit', 'zodiac', 'crater','telescope', 'gravity', 'starlight', 'zodiac',
-     'cosmos', 'aurora', 'corona', 'extraterrestrial'];
-let maxGuesses = 6;
+'earth', 'universe', 'constellations', 'nebula', 'venus', 'jupiter',
+'asteroid', 'kepler', 'meteor', 'supernova', 'mercury', 'mars', 'uranus', 
+'aquarius', 'aries', 'cancer', 'capricorn', 'cassiopeia', 'gemini', 'leo', 
+'libra', 'orion', 'pisces', 'sagittarius', 'scorpio', 'taurus', 'astronomy',
+'aerospace', 'rover', 'pathfinder', 'stars', 'pluto', 'comet', 'lunar', 
+'eclipse', 'solstice', 'orbit', 'zodiac', 'crater','telescope', 'gravity', 
+'starlight','zodiac','cosmos', 'aurora', 'corona', 'extraterrestrial'];
+
 /*----- app's state (variables) -----*/
 let randomWord = words[Math.floor(Math.random() * words.length)];
 let wrong = [];
 let answerArr;
-maxGuesses;
+let maxGuesses = 6;
 
 
 /*----- cached element references -----*/
@@ -56,7 +56,7 @@ function render() {
         msg.textContent = `Please enter a single letter`;
     } else if(randomWord.includes(lowCaseInp)) {
         msg.textContent = `Correct!`;
-    } else if(!randomWord.includes(lowCaseInp)) {
+    } else if(!randomWord.includes(lowCaseInp) && (isNaN(inp.value))) {
         wrong.push(lowCaseInp);
         msg.textContent = 'Wrong!';
         maxGuesses--;
@@ -67,7 +67,6 @@ function render() {
      getWinner();
     };
 
-render();
 
 function submitGuess() { 
     let lowCaseInp = inp.value.toLowerCase();
@@ -92,10 +91,12 @@ function getWinner() {
         }   
 };
 
+
     let myAudio =  document.querySelector('#laser');
         submit.addEventListener('click', ()=> {
             myAudio.play();
     });
+
 
     inp.addEventListener('keyup', function(event) {
         if (event.code === 'Enter') {
