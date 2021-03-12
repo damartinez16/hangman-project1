@@ -1,9 +1,9 @@
 
-const words = ['groovy', 'peace', 'love', 'music', 
-'retro', 'vintage', 'cool', 'rewind', 'walkman', 'funky', 'fashion', 
-'nostalgia', 'stylish', 'chic', 'vibe', 'grunge', 'trendy', 'hipster',
-'psychedelic', 'snazzy', 'iconic', 'classic', 'bellbottoms', 'radical', 
-'tubular', 'wicked', 'gnarly'];
+const words = ['choclate', 'sugar', 'sweet', 'cherry', 
+'lolipop', 'strawberry', 'gummy', 'cookie', 'donut', 'cake', 
+'pie', 'peanuts', 'fudge', 'caramel', 'mint', 'pistachio', 'gingerbread', 
+'candy', 'banana', 'cupcake', 'dessert', 'pastry', 'treat', 'muffin',
+'taffy', 'butterscotch', 'gelato', 'licorice', 'nougat', 'jawbreaker', 'sprinkle'];
 
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
