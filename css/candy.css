@@ -3,7 +3,6 @@
   }
 
 body {
-
     background-color: white;
     background-image: url("https://i.imgur.com/wg2uqBl.png");
     background-size: 190vmin 210vmin, auto;
@@ -21,17 +20,18 @@ nav {
     margin: 3vmin 0 0 3vmin;
     font-size: 3vmin;
 }
+
 img {
     margin: 5vh auto;
     text-align: center;
     width: 30%;
     height: 30%;
 }
-
 section {
     text-align: center;
     display: block;
 }
+
 #submit {
     margin-top: 5vmin;
     height: 9vh;
@@ -40,8 +40,7 @@ section {
     font-size: 19px;
     background-color: pink;
     border: lightblue dotted 3px;
-    color: red;
-    
+    color: red;  
 }
 
 h1 {
@@ -56,6 +55,7 @@ main {
     font-size: 50px;
     color: black;
 }
+
 #submit:hover {
     background-color: lightyellow;
 }
@@ -68,7 +68,7 @@ main {
     background-color: white;
     color: red;
 }
-/* Dropdown Button */
+
 .dropbtn {
   background-color: lightyellow;
   color: black;
@@ -76,7 +76,6 @@ main {
   border: none;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   float: right;
@@ -84,7 +83,6 @@ main {
   margin-left: -100vmin;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     background-color: pink;
   display: none;
@@ -94,7 +92,6 @@ main {
   z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   color: black;
   padding: 9px 12px;
@@ -102,14 +99,17 @@ main {
   display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: white;}
+.dropdown-content a:hover {
+    background-color: white;
+}
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: lightblue;}
+.dropdown:hover .dropbtn {
+    background-color: lightblue;
+}
 
 @media only screen and (max-width: 640px) {
     body {
