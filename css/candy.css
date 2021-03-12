@@ -34,6 +34,7 @@ section {
 
 #submit {
     margin-top: 5vmin;
+    margin-bottom: -10px;
     height: 9vh;
     width: 9vh;
     border-radius: 200%;
