@@ -65,7 +65,7 @@ main {
     border: inset silver;
     padding: .5vmin;
     border-radius: 10%;
-    background-color: rgb(1, 167, 1);
+    background-color: pink;
     color: white;
 }
 /* Dropdown Button */
