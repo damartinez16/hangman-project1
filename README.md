@@ -15,7 +15,7 @@ The rules are simple, to win Hangman you must guess the word by guessing one let
  
 
 ### TECHNOLOGIES USED: 
-The launguages used in this game are HTML, CSS, JavaScript. 
+The languages used in this game are HTML, CSS, JavaScript. 
 
 ### GETTING STARTED:  
 [click here to play the game](https://damartinez16.github.io/hangman-project1/)
